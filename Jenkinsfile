@@ -21,12 +21,26 @@ pipeline {
   	}
 	}
 	stage('Deploy to Docker') {
-  	steps {
-    	git 'https://github.com/evan8133/react-todo-app.git'
-    	bat 'docker build -t reactappjenkins .'
-    	bat 'docker run -d -p 3000:3000 reactappjenkins'
-  	}
-	}
+            steps {
+                git 'https://github.com/evan8133/react-todo-app.git'
+                bat 'docker build -t reactappjenkins .'
+
+                script {
+                    def containerName = 'my-react-app'
+
+                    // Check if a container with the same name already exists
+                    def existingContainer = bat(returnStdout: true, script: "docker ps -aqf name=${containerName}").trim()
+                    if (existingContainer) {
+                        // Stop and remove the existing container
+                        bat "docker stop ${existingContainer}"
+                        bat "docker rm ${existingContainer}"
+                    }
+
+                    // Run the container
+                    bat "docker run -d -p 3000:3000 --name ${containerName} reactappjenkins"
+                }
+            }
+        }
         stage('Jira Comment') {
             steps {
                 jiraComment body: 'hELLO 👋 ', issueKey: 'SCP-2'
