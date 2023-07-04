@@ -35,7 +35,7 @@ pipeline {
 		stage('Execute JMeter') {
             steps {
                 bat '''c: jmeter\\bin\\jmeter -j jmeter.save.saveservice.output_format=xml -n -t
-						c: jimeter\\bin\\jenkins.io.imx -l c:\\jmeter\\reports\\jenkins.io.report.jtl'''
+						c: jmeter\\bin\\jenkins.io.imx -l c:\\jmeter\\reports\\jenkins.io.report.jtl'''
             }
         }
 		stage('JMeter Report') {
