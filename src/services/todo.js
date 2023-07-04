@@ -9,7 +9,7 @@ export function getAll() {
         {
             id: 1,
             text: 'Learn Jenkins',
-            completed: false
+            completed: true
         },
         {
             id: 2,
