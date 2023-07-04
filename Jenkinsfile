@@ -40,7 +40,7 @@ pipeline {
         }
 		stage('JMeter Report') {
             steps {
-                perfReport filters: [], sourceDataFiles: 'C:\\jmeter\\reports\\jenkins.io.report.jtl'
+                perfReport filterRegex: '', showTrendGraphs: true, sourceDataFiles: 'C:\\jmeter\\reports\\jenkins.io.report.jtl'
             }
         }
     }
