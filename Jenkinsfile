@@ -34,10 +34,8 @@ pipeline {
         }
 		stage('Execute JMeter') {
             steps {
-                bat '''
-                    cd "C:\\Program Files\\jmeter\\bin"
-                    jmeter -n -t "C:\\Program Files\\jmeter\\bin\\SMTP_Sampler.jmx" -l "C:\\Program Files\\jmeter\\bin\\SMTP_Sampler_logfile.jtl"
-                '''
+                bat '''c: jmeter\\bin\\jmeter -j jmeter.save.saveservice.output_format=xml -n -t
+						c: jimeter\\bin\\jenkins.io.imx -l c:\\jmeter\\reports\\jenkins.io.report.jtl'''
             }
         }
     }
