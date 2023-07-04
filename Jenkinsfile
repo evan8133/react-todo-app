@@ -34,10 +34,10 @@ pipeline {
         }
 		stage('Execute JMeter') {
             steps {
-                
-				bat '''C:
-				cd C:\\Program Files\\jmeter\\bin
-				jmeter -n -t C:\\Program Files\\jmeter\\bin\\SMTP_Sampler.jmx -l C:\\Program Files\\jmeter\\bin\\SMTP_Sampler_logfile.jtl'''
+                bat '''
+                    cd "C:\\Program Files\\jmeter\\bin"
+                    jmeter -n -t "C:\\Program Files\\jmeter\\bin\\SMTP_Sampler.jmx" -l "C:\\Program Files\\jmeter\\bin\\SMTP_Sampler_logfile.jtl"
+                '''
             }
         }
     }
