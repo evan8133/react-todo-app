@@ -32,8 +32,7 @@ pipeline {
                 jiraComment body: 'hELLO 👋 ', issueKey: 'SCP-2'
             }
         }
-    }
-	stage('Execute JMeter') {
+		stage('Execute JMeter') {
             steps {
                 
             sh '''
@@ -49,4 +48,6 @@ pipeline {
             
             }
         }
+    }
+	
 }
