@@ -38,6 +38,11 @@ pipeline {
 						c: jimeter\\bin\\jenkins.io.imx -l c:\\jmeter\\reports\\jenkins.io.report.jtl'''
             }
         }
+		stage('JMeter Report') {
+            steps {
+                perfReport filters: [], sourceDataFiles: 'C:\\jmeter\\reports\\jenkins.io.report.jtl'
+            }
+        }
     }
 	
 }
