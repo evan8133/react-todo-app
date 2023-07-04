@@ -35,17 +35,9 @@ pipeline {
 		stage('Execute JMeter') {
             steps {
                 
-            sh '''
-               #!/bin/bash -c cd /opt/apache-jmeter-5.5/bin
-               #!/bin/bash -c ./jmeter -n -t TestPlans/PetStore-End-to-End-Flow.jmx -p TestPlans/data/PetStore_LoadTest.properties -JTOTAL_THREADS=1 -JTEST_DURATION=60 -l MyRun1.jtl
-               '''
-            }
-        }
-        stage('Publish JMeter Report') {
-            steps {
-            
-                perfReport filterRegex: '', sourceDataFiles: 'TestPlans/Installing.jtl'
-            
+				bat '''C:
+				cd C:\\Program Files\\jmeter\\bin
+				jmeter -n -t C:\\Program Files\\jmeter\\bin\\SMTP_Sampler.jmx -l C:\\Program Files\\jmeter\\bin\\SMTP_Sampler_logfile.jtl'''
             }
         }
     }
