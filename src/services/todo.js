@@ -14,7 +14,7 @@ export function getAll() {
         {
             id: 2,
             text: 'Learn React yay',
-            completed: false
+            completed: true
         },
         {
             id: 3,
