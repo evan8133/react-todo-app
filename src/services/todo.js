@@ -13,7 +13,7 @@ export function getAll() {
         },
         {
             id: 2,
-            text: 'Learn React',
+            text: 'Learn React yay',
             completed: false
         },
         {
