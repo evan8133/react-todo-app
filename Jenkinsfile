@@ -36,7 +36,7 @@ pipeline {
             steps {
             
                 bat """
-                C:\\Program Files\\jmeter\\bin\\jmeter.bat -n -t "D:\\jemterTest\\jenkins.io.jmx" -JTOTAL_THREADS=2 -JTEST_DURATION=60 -l MyRun1.jtl
+                'C:\\Program Files\\jmeter\\bin\\jmeter.bat' -n -t "D:\\jemterTest\\jenkins.io.jmx" -JTOTAL_THREADS=2 -JTEST_DURATION=60 -l MyRun1.jtl
                 """
             
             }
