@@ -32,15 +32,20 @@ pipeline {
                 jiraComment body: 'hELLO 👋 ', issueKey: 'SCP-2'
             }
         }
-		stage('Execute JMeter') {
+		 stage('Execute JMeter') {
             steps {
-                bat '''c: jmeter\\bin\\jmeter -j jmeter.save.saveservice.output_format=xml -n -t
-						c: jmeter\\bin\\jenkins.io.imx -l c:\\jmeter\\reports\\jenkins.io.report.jtl'''
+            
+                bat """
+                C:\\Program Files\\jmeter\\bin\\jmeter.bat -n -t "D:\\jemterTest\\jenkins.io.jmx" -JTOTAL_THREADS=2 -JTEST_DURATION=60 -l MyRun1.jtl
+                """
+            
             }
         }
-		stage('JMeter Report') {
+		stage('Publish Report') {
             steps {
-                perfReport filterRegex: '', showTrendGraphs: true, sourceDataFiles: 'C:\\jmeter\\reports\\jenkins.io.report.jtl'
+            
+                perfReport filterRegex: '', sourceDataFiles: '**/*.jtl'
+            
             }
         }
     }
