@@ -27,16 +27,6 @@ pipeline {
     	bat 'docker run -d -p 3000:3000 reactappjenkins'
   	}
 	}
-        stage('Push to Docker') {
-    steps {
-        script {
-            docker.withRegistry('https://registry.hub.docker.com', 'dockerhubcred') {
-                def app = docker.build("evaan37/reactappjenkins")
-                app.push()
-            }
-        }
-    }
-}
         stage('Jira Comment') {
             steps {
                 jiraComment body: 'hELLO 👋 ', issueKey: 'SCP-2'
