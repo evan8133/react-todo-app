@@ -30,9 +30,9 @@ pipeline {
     stage('Push to Docker'){
         steps{
             withCredentials([string(credentialsId: 'dokerjenkins', variable: 'dockerhubpwd')]) {
-                sh 'docker login -u devopshint -p ${dockerhubpwd}'
+                sh 'docker login -u evaan37 -p ${dockerhubpwd}'
 
-                sh 'docker push devopshint/my-app-1.0'
+                sh 'docker push evaan37/reactappjenkins'
             }
         }
     }
